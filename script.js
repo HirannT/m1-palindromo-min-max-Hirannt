@@ -1,28 +1,33 @@
-function isPalindrome(str){
-    const checkPalindrome = (str) => {
-        let result = '';
-        for (let i = 0; i<str.length / 2; i++ ) {
-            if (str[i] !== str[str.length -i -1]){
-                return result = false
-            } 
-            result = true
-        }
-        return result
+function isPalindrome(str) {
+
+    let strClean  = str.replace(/ /g, '').toLowerCase();
+    let strInvert = '';
+
+    for(let i = strClean.length - 1; i >= 0; i--) {
+        strInvert += strClean[i];
     }
 
+    return strClean == strInvert;
 }
-console.log(isPalindrome("arara"))
-    // Arara
-    // Ovo
-    // Anilina
-    // Frases:
 
-    // A sacada da casa
-    // Ame o poema
-    // A mala nada na lama
-    // A torre da derrota
+function arrayMaxMin(arr) {
 
-function arrayMaxMin(arr){
-   let array = []
+    if (arr.length == 0) {
+        return [];
+    } 
+    
+    let min = arr[0];
+    let max = arr[0];
 
+    for (let i = 1; i < arr.length; i++) {
+
+        if (arr[i] < min) {
+            min = arr[i];
+        } 
+        else if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    
+    return [min, max]; 
 }
